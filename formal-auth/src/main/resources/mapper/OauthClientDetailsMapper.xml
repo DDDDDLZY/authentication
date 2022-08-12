@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lzy.security.basic.client.mapper.OauthClientDetailsMapper">
+<mapper namespace="com.security.basic.client.mapper.OauthClientDetailsMapper">
     <resultMap id="BaseResultMap" type="com.utils.entity.pojo.OauthClientDetails">
         <result column="client_id" property="clientId"/>
         <result column="resource_ids" property="resourceIds"/>
@@ -41,7 +41,7 @@
             </if>
         </where>
     </select>
-    <select id="listAll" resultType='com.lzy.security.basic.vo.OauthClientVO'>
+    <select id="listAll" resultType='com.security.basic.vo.OauthClientVO'>
         select
         oc.id id,
         oc.client_id clientId,

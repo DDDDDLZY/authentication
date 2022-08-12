@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 白名单路径
  *
- * @Author: liuzhanyang
+ * @Author: zhanyang
  * @Date: 2022/2/25 15:20
  */
 public class RouteContants {

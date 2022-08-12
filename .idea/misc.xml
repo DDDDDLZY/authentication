@@ -16,10 +16,10 @@
         <option value="$PROJECT_DIR$/md-common/pom.xml" />
         <option value="$PROJECT_DIR$/md-common/md-common-redis/pom.xml" />
         <option value="$PROJECT_DIR$/formal-auth/pom.xml" />
-        <option value="$PROJECT_DIR$/formal-common/pom.xml" />
         <option value="$PROJECT_DIR$/formal-system/pom.xml" />
         <option value="$PROJECT_DIR$/formal-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/formal-client/pom.xml" />
+        <option value="$PROJECT_DIR$/formal-common/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

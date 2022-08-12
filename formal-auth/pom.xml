@@ -24,7 +24,7 @@
         <mybatis-plus-extension.version>3.4.0</mybatis-plus-extension.version>
         <spring-cloud-starter-bootstrap.version>3.1.0</spring-cloud-starter-bootstrap.version>
         <docker.image.prefix>registry-md-back</docker.image.prefix>
-        <startup.main>com.lzy.security.AuthApplication</startup.main>
+        <startup.main>com.security.AuthApplication</startup.main>
     </properties>
     <dependencyManagement>
         <dependencies>

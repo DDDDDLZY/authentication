@@ -1,7 +1,7 @@
 package com.utils.common.constant;
 
 /**
- * @Author: lzy
+ * @Author: zhanyang
  * @Date: 2022/2/18 14:30
  */
 public class CommonConstant {

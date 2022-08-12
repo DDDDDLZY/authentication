@@ -3,7 +3,7 @@ package com.utils.entity.dto;
 import lombok.Data;
 
 /**
- * @Author: lzy
+ * @Author: zhanyang
  * @Date: 2022/2/18 14:26
  */
 @Data

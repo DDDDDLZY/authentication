@@ -16,7 +16,7 @@
     <properties>
         <java.version>11</java.version>
         <spring-boot-starter-aop.version>2.5.4</spring-boot-starter-aop.version>
-        <fastjson.version>1.2.70</fastjson.version>
+<!--        <fastjson.version>1.2.70</fastjson.version>-->
         <swagger-ui.version>2.7.0</swagger-ui.version>
         <swagger2.version>2.7.0</swagger2.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
@@ -30,21 +30,24 @@
             <version>2.2.1</version>
             <classifier>jdk15</classifier>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>fastjson</artifactId>-->
+<!--            <version>${fastjson.version}</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.26</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -144,11 +147,11 @@
             <scope>compile</scope>
         </dependency>
         <!--引入Druid数据源-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>druid</artifactId>-->
-<!--            <version>1.1.18</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>druid</artifactId>-->
+        <!--            <version>1.1.18</version>-->
+        <!--        </dependency>-->
         <!--导入配置文件处理器，配置文件进行绑定就会有提示-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -180,7 +183,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!-- Alibaba Fastjson -->
+        <!--Alibaba Fastjson-->
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>

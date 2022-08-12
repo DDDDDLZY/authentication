@@ -3,7 +3,7 @@ package com.utils.common.annotation;
 import java.lang.annotation.*;
 
 /**
- * @Author: lzy
+ * @Author: zhanyang
  * @Date: 2021/11/25 11:07
  */
 @Target(ElementType.METHOD)

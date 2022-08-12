@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * @ClassName PageBaseDTO
  * @Description
- * @Author linzhixiong
+ * @Author zhanyang
  * @Date 2021/7/22 下午5:28
  **/
 @Data
