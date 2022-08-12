@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="formal-auth" />
+        <module name="formal-common" />
+        <module name="formal-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bus" target="1.8" />
+      <module name="cas-overlay" target="1.8" />
+      <module name="cas-server" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="formal-auth" target="8" />
+      <module name="formal-bus" target="1.8" />
+      <module name="formal-cas" target="1.8" />
+      <module name="formal-cas-client" target="1.8" />
+      <module name="formal-common" target="1.8" />
+      <module name="formal-gateway" target="8" />
+      <module name="formal-system" target="1.8" />
+      <module name="formal-trace" target="1.8" />
+      <module name="md-auth" target="1.8" />
+      <module name="md-common" target="1.8" />
+      <module name="md-common-redis" target="1.8" />
+      <module name="md-kakfa" target="1.8" />
+      <module name="system-center" target="8" />
+      <module name="system-doc" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
+      <module name="formal-auth" options="-parameters" />
+      <module name="formal-bus" options="-parameters" />
+      <module name="formal-cas" options="-parameters" />
+      <module name="formal-cas-client" options="-parameters" />
+      <module name="formal-common" options="-parameters" />
+      <module name="formal-gateway" options="-parameters" />
+      <module name="formal-trace" options="-parameters" />
+      <module name="md-auth" options="-parameters" />
+      <module name="md-common-redis" options="-parameters" />
+      <module name="md-kakfa" options="-parameters" />
+      <module name="system-center" options="-parameters" />
+      <module name="system-doc" options="-parameters" />
+    </option>
+  </component>
+</project>

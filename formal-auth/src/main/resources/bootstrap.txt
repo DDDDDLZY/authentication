@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: auth-service
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/project_manager?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&allowMultiQueries=true&autoReconnect=true
+    username: root
+    password: root
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  typeAliasesPackage: com.lzy.**.pojo
+redis:
+  host: 121.36.134.72
+  port: 6381
+  password: root
+logging:
+  level:
+    com.cy: debug
+config:
+  jwt:
+    secret: secret

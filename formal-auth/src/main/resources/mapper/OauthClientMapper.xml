@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzy.security.basic.client.mapper.OauthClientMapper">
+    <resultMap id="BaseResultMap" type="com.utils.entity.pojo.OauthClient">
+        <result column="id" property="id"/>
+        <result column="client_id" property="clientId"/>
+        <result column="client_name" property="clientName"/>
+        <result column="address" property="address"/>
+        <result column="state" property="state"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="del_flag" property="delFlag"/>
+    </resultMap>
+
+    <!-- 表字段 -->
+    <sql id="baseColumns">
+         t.id
+        , t.client_id
+        , t.client_name
+        , t.address
+        , t.state
+        , t.create_by
+        , t.create_time
+        , t.update_by
+        , t.update_time
+        , t.del_flag
+        </sql>
+
+    <!-- 查询全部 -->
+    <select id="listAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="baseColumns"/>
+        FROM oauth_client t
+    </select>
+
+    <!-- 插入不为NULL的字段 -->
+    <insert id="insertIgnoreNull" parameterType="com.utils.entity.pojo.OauthClient"
+            keyProperty="id" keyColumn="id" useGeneratedKeys="true"
+    >
+        INSERT INTO oauth_client
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test="clientId != null">
+                client_id,
+            </if>
+            <if test="clientName != null">
+                client_name,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="clientId != null">
+                #{clientId},
+            </if>
+            <if test="clientName != null">
+                #{clientName},
+            </if>
+            <if test="address != null">
+                #{address},
+            </if>
+            <if test="state != null">
+                #{state},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 更新不为NULL的字段 -->
+    <update id="updateIgnoreNull" parameterType="com.utils.entity.pojo.OauthClient">
+        UPDATE oauth_client
+        <set>
+            <if test="clientId != null">
+                client_id=#{clientId},
+            </if>
+            <if test="clientName != null">
+                client_name=#{clientName},
+            </if>
+            <if test="address != null">
+                address=#{address},
+            </if>
+            <if test="singleType != null">
+                single_type=#{singleType},
+            </if>
+            <if test="secretKey != null">
+                secret_key=#{secretKey},
+            </if>
+            <if test="state != null">
+                state=#{state},
+            </if>
+            <if test="createBy != null">
+                create_by=#{createBy},
+            </if>
+            <if test="createTime != null">
+                create_time=#{createTime},
+            </if>
+            <if test="updateBy != null">
+                update_by=#{updateBy},
+            </if>
+            <if test="updateTime != null">
+                update_time=#{updateTime},
+            </if>
+            <if test="remark != null">
+                remark=#{remark},
+            </if>
+            <if test="delFlag != null">
+                del_flag=#{delFlag},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 根据主键删除记录 -->
+    <delete id="delete" parameterType="com.utils.entity.pojo.OauthClient">
+		UPDATE oauth_client
+		SET del_flag=2
+		WHERE id = #{id}
+	</delete>
+    <select id="findPage" resultType="com.lzy.security.basic.vo.OauthClientVO">
+        select
+        oc.id id,
+        oc.client_id clientId,
+        oc.client_name clientName,
+        oc.secret_key secretKey,
+        oc.single_type singleType,
+        address address,
+        state state,
+        ocd.client_secret clientSecret,
+        ocd.web_server_redirect_uri webServerRedirectUri,
+        ocd.scope scope,
+        oc.create_time createTime,
+        oc.remark remark
+        from oauth_client oc
+        INNER JOIN oauth_client_details ocd
+        on oc.client_id = ocd.client_id
+        <where>
+            <if test="body.clientId !=null and body.clientId !=''">
+                client_id = #{body.clientId}
+            </if>
+            <if test="body.clientName !=null and body.clientName !=''">
+                client_name = #{clientName}
+            </if>
+            <if test="body.startTime !=null and body.endTime !=null">
+                create_time between #{startTime} and endTime
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+</mapper>

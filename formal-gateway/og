@@ -1,0 +1,24 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building formal-gateway 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- docker-maven-plugin:0.4.13:build (default-cli) @ formal-gateway ---
+[INFO] Copying C:\Main\Microservices\md-back-master\formal-gateway\target\formal-gateway.jar -> C:\Main\Microservices\md-back-master\formal-gateway\target\docker\formal-gateway.jar
+[INFO] Copying C:\Main\Microservices\md-back-master\formal-gateway\docker\DockerFile -> C:\Main\Microservices\md-back-master\formal-gateway\target\docker\DockerFile
+[INFO] Building image registry/md-back/formal-gateway
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 14.657 s
+[INFO] Finished at: 2022-02-22T17:29:20+08:00
+[INFO] Final Memory: 31M/270M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.13:build (default-cli) on project formal-gateway: Exception caught: Request error: POST http://121.36.134.72:6500/build?t=registry/md-back/formal-gateway: 500: HTTP 500 Internal Server Error -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
