@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 自定义grant_type模式-手机号验证模式
+ * 手机号验证模式
  *
  * @author zhanyang
  **/
