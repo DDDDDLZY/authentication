@@ -1,4 +1,4 @@
-package com.security.support.mobile;
+package com.security.support.email;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,14 +10,14 @@ import java.util.Collection;
 /**
  * @author
  */
-public class MobileAuthenticationToken extends AbstractAuthenticationToken {
+public class EmailAuthenticationToken extends AbstractAuthenticationToken {
 
     private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
     private final Object principal;
     private Object credentials;
 
-    public MobileAuthenticationToken(String mobile, String code) {
+    public EmailAuthenticationToken(String mobile, String code) {
         super(null);
         this.principal = mobile;
         this.credentials = code;
@@ -34,8 +34,8 @@ public class MobileAuthenticationToken extends AbstractAuthenticationToken {
      * @param credentials
      * @param authorities
      */
-    public MobileAuthenticationToken(Object principal, Object credentials,
-                                               Collection<? extends GrantedAuthority> authorities) {
+    public EmailAuthenticationToken(Object principal, Object credentials,
+                                    Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
         this.principal = principal;
         this.credentials = credentials;

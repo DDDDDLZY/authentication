@@ -1,4 +1,4 @@
-package com.security.support;
+package com.security.support.enhancer;
 
 import com.alibaba.fastjson2.JSONObject;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
@@ -20,6 +20,7 @@ public class CustomJwtTokenEnhancer implements TokenEnhancer {
     public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
         //获取客户端Client信息
 //        Map<String, String> requestParameters = authentication.getOAuth2Request().getRequestParameters();
+        //todo 这个地方有问题
         Map<Object,Object> user = JSONObject.parseObject(JSONObject.toJSONString(authentication.getUserAuthentication().getPrincipal()), Map.class);
         final Map<String, Object> additionalInfo = new HashMap<>();
         additionalInfo.put("user_name", user.get("username"));

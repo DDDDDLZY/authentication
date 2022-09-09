@@ -2,7 +2,6 @@ package com.security.auth.client;
 
 import com.utils.entity.dto.UserDTO;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 

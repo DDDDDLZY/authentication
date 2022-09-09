@@ -1,4 +1,4 @@
-package com.security.support;
+package com.security.support.enhancer;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

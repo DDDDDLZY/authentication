@@ -1,6 +1,6 @@
-package com.security.support.mobile;
+package com.security.support.email;
 
-import com.security.auth.service.UserServiceImpl;
+import com.security.auth.service.UserDetailsServiceImpl;
 import com.utils.common.StringUtils;
 import com.utils.common.exception.ServiceException;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -13,13 +13,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @Author: zhanyang
  * @Date: 2022/8/12 9:11
  */
-public class MobileAuthenticationProvider implements AuthenticationProvider {
+public class EmailAuthenticationProvider implements AuthenticationProvider {
 
-    private final UserServiceImpl userService;
+    private final UserDetailsServiceImpl userService;
 
     private final PasswordEncoder passwordEncoder;
 
-    public MobileAuthenticationProvider(UserServiceImpl userService1, PasswordEncoder passwordEncoder) {
+    public EmailAuthenticationProvider(UserDetailsServiceImpl userService1, PasswordEncoder passwordEncoder) {
         this.userService = userService1;
         this.passwordEncoder = passwordEncoder;
     }
@@ -33,7 +33,7 @@ public class MobileAuthenticationProvider implements AuthenticationProvider {
      */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        MobileAuthenticationToken mobileAuthenticationToken = (MobileAuthenticationToken) authentication;
+        EmailAuthenticationToken mobileAuthenticationToken = (EmailAuthenticationToken) authentication;
         String mobile = (String) mobileAuthenticationToken.getPrincipal();
         String code = (String) mobileAuthenticationToken.getCredentials();
         //todo 验证操作
@@ -42,7 +42,7 @@ public class MobileAuthenticationProvider implements AuthenticationProvider {
         if (StringUtils.isEmpty(userDetails.getUsername())) {
             throw new ServiceException("用户信息为空");
         }
-        MobileAuthenticationToken authenticationResult = new MobileAuthenticationToken(userDetails, code, userDetails.getAuthorities());
+        EmailAuthenticationToken authenticationResult = new EmailAuthenticationToken(userDetails, code, userDetails.getAuthorities());
         authenticationResult.setDetails(mobileAuthenticationToken.getDetails());
         return authenticationResult;
     }
@@ -55,6 +55,6 @@ public class MobileAuthenticationProvider implements AuthenticationProvider {
      */
     @Override
     public boolean supports(Class<?> authentication) {
-        return MobileAuthenticationToken.class.isAssignableFrom(authentication);
+        return EmailAuthenticationToken.class.isAssignableFrom(authentication);
     }
 }

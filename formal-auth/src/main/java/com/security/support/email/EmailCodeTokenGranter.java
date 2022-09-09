@@ -1,4 +1,4 @@
-package com.security.support.mobile;
+package com.security.support.email;
 
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
@@ -13,18 +13,18 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 手机号验证模式
+ * 邮箱+密码
  *
  * @author zhanyang
  **/
-public class MobileCodeTokenGranter extends AbstractTokenGranter {
+public class EmailCodeTokenGranter extends AbstractTokenGranter {
 
-    private static final String GRANT_TYPE = "mobile";
+    private static final String GRANT_TYPE = "email";
 
     private final AuthenticationManager authenticationManager;
 
-    public MobileCodeTokenGranter(AuthenticationManager authenticationManager,
-                                  AuthorizationServerTokenServices tokenServices, ClientDetailsService clientDetailsService, OAuth2RequestFactory requestFactory) {
+    public EmailCodeTokenGranter(AuthenticationManager authenticationManager,
+                                 AuthorizationServerTokenServices tokenServices, ClientDetailsService clientDetailsService, OAuth2RequestFactory requestFactory) {
         super(tokenServices, clientDetailsService, requestFactory, GRANT_TYPE);
         this.authenticationManager = authenticationManager;
     }
@@ -46,7 +46,7 @@ public class MobileCodeTokenGranter extends AbstractTokenGranter {
         Map<String, String> parameters = new LinkedHashMap<String, String>(tokenRequest.getRequestParameters());
         String mobile = parameters.get("mobile");
         String code = parameters.get("code");
-        Authentication userAuth = new MobileAuthenticationToken(mobile, code);
+        Authentication userAuth = new EmailAuthenticationToken(mobile, code);
         ((AbstractAuthenticationToken) userAuth).setDetails(parameters);
         try {
             userAuth = authenticationManager.authenticate(userAuth);

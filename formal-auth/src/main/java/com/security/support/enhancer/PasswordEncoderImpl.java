@@ -1,4 +1,4 @@
-package com.security.support;
+package com.security.support.enhancer;
 
 import cn.hutool.crypto.digest.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;

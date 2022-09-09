@@ -1,6 +1,6 @@
 package com.security.core;
 
-import com.security.support.mobile.SmsCodeSecurityConfig;
+import com.security.support.email.EmailCodeSecurityConfig;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userService;
 
     @Autowired
-    private SmsCodeSecurityConfig smsCodeSecurityConfig;
+    private EmailCodeSecurityConfig emailCodeSecurityConfig;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @SneakyThrows
     protected void configure(HttpSecurity http) {
         http.httpBasic().and().csrf().disable()
-                .apply(smsCodeSecurityConfig);
+                .apply(emailCodeSecurityConfig);
     }
 
     @Override

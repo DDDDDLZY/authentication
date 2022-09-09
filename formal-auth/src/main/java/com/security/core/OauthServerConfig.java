@@ -1,7 +1,7 @@
 package com.security.core;
 
-import com.security.support.CustomJwtTokenEnhancer;
-import com.security.support.mobile.MobileCodeTokenGranter;
+import com.security.support.enhancer.CustomJwtTokenEnhancer;
+import com.security.support.email.EmailCodeTokenGranter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -156,8 +156,8 @@ public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
                 (endpoints.getTokenServices(),
                         endpoints.getClientDetailsService(),
                         endpoints.getOAuth2RequestFactory()));
-        //自定义手机号验证码模式、
-        list.add(new MobileCodeTokenGranter(
+        //自定义邮箱+密码模式、
+        list.add(new EmailCodeTokenGranter(
                 authenticationManager,
                 endpoints.getTokenServices(),
                 endpoints.getClientDetailsService(),

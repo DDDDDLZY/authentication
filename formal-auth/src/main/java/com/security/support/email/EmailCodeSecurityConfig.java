@@ -1,6 +1,6 @@
-package com.security.support.mobile;
+package com.security.support.email;
 
-import com.security.auth.service.UserServiceImpl;
+import com.security.auth.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
  * @Date: 2022/8/12 10:18
  */
 @Component
-public class SmsCodeSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
+public class EmailCodeSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserDetailsServiceImpl userService;
 
     /**
      * 覆写方法
@@ -28,7 +28,7 @@ public class SmsCodeSecurityConfig extends SecurityConfigurerAdapter<DefaultSecu
      */
     @Override
     public void configure(HttpSecurity builder) {
-        MobileAuthenticationProvider mobileAuthenticationProvider = new MobileAuthenticationProvider(userService,passwordEncoder);
+        EmailAuthenticationProvider mobileAuthenticationProvider = new EmailAuthenticationProvider(userService,passwordEncoder);
         builder.authenticationProvider(mobileAuthenticationProvider);
     }
 }

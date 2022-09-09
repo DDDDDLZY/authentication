@@ -58,12 +58,10 @@ public class CasTicketTokenGranter extends AbstractTokenGranter {
         ((AbstractAuthenticationToken) userAuth).setDetails(parameters);
         try {
             userAuth = authenticationManager.authenticate(userAuth);
-        }
-        catch (AccountStatusException ase) {
+        } catch (AccountStatusException ase) {
             //covers expired, locked, disabled cases (mentioned in section 5.2, draft 31)
             throw new InvalidGrantException(ase.getMessage());
-        }
-        catch (BadCredentialsException e) {
+        } catch (BadCredentialsException e) {
             // If the ticket is wrong the spec says we should send 400/invalid grant
             throw new InvalidGrantException(e.getMessage());
         }
